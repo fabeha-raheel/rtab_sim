@@ -1,0 +1,4 @@
+AWS Bookstore World: https://github.com/aws-robotics/aws-robomaker-bookstore-world
+AWS Small House World: https://github.com/aws-robotics/aws-robomaker-small-house-world
+Clearpath Robotics Worlds: https://www.clearpathrobotics.com/assets/guides/noetic/husky/additional_sim_worlds.html
+PX4 Simulation Worlds: https://docs.px4.io/main/en/sim_gazebo_classic/worlds.html
