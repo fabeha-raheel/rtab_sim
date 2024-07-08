@@ -11,23 +11,23 @@
 
 To build the package: 
 
-1. Create a workspace folder in your ```$HOME``` directory:
-```bash
-mkdir -p <your_ws>/src
-```
-Replace ```your_ws``` with the name of your workspace.
+1.  Create a workspace folder in your ```$HOME``` directory:
+    ```bash
+    mkdir -p <your_ws>/src
+    ```
+    Replace ```your_ws``` with the name of your workspace.
 
-2. Clone the rtab_sim ROS Package:
-```bash
-cd <your_ws>/src
-git clone https://github.com/fabeha-raheel/rtab_sim.git
-```
+2.  Clone the rtab_sim ROS Package:
+    ```bash
+    cd <your_ws>/src
+    git clone https://github.com/fabeha-raheel/rtab_sim.git
+    ```
 
-3. Build the ROS Package:
-```bash
-cd ~/<your_ws>
-catkin_make
-```
+3.  Build the ROS Package:
+    ```bash
+    cd ~/<your_ws>
+    catkin_make
+    ```
 
 ## ArduPilot Indoor Simulation Worlds
 The package contains the following worlds that can be readily launched:
