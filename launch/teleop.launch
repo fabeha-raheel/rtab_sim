@@ -1,0 +1,6 @@
+<launch>
+	<arg name="teleop_args" default="-rc" />
+
+	<node pkg="rtab_sim" type="teleop.py" name="teleop" args="$(arg teleop_args)" required="True" output="screen">
+	</node>
+</launch>

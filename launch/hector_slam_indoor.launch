@@ -33,6 +33,9 @@
                 <arg name="fcu_url" value="udp://127.0.0.1:14551@14555" />  
         </include>
 
+        <!-- Hector SLAM Node -->
+        <include file="$(find hector_slam_launch)/launch/tutorial.launch" > </include>
+
         <!-- Rviz Node -->
         <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rtab_sim)/rviz/rviz_config.rviz" /> -->
 

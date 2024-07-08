@@ -44,7 +44,7 @@
 
       <!-- add new camera -->
       <link name='camera'>
-        <pose>0 -0.01 0.070 1.57 0 1.57</pose>
+        <pose>0 -0.01 0.070 0 -1.57 0</pose>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
           <mass>0.1</mass>
@@ -74,7 +74,7 @@
         </visual>
 
         <sensor name="camera" type="camera">
-          <pose>0 0 0 -1.57 -1.57 0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <camera>
             <horizontal_fov>1.0472</horizontal_fov>
             <image>
@@ -187,8 +187,8 @@
             </ray>
             <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so">
               <robotNamespace></robotNamespace>
-              <topicName>/spur/laser/scan</topicName>
-              <frameName>/hokuyo_sensor_link</frameName>
+              <topicName>/scan</topicName>
+              <frameName>/laser</frameName>
             </plugin>
           </sensor>
         </link>
