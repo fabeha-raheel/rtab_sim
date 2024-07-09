@@ -39,7 +39,7 @@
       <include>
         <uri>model://iris_with_standoffs_demo</uri>
       </include>
-      <pose> 5.430684 -1.894990 0 0 0 0</pose>
+      <pose> 5.430684 -1.894990 0 0 0 3.142857</pose>
 
 
       <!-- add new camera -->

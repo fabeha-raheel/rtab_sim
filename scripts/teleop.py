@@ -56,7 +56,7 @@ def takeoff(args):
         print(ex)
 
     if not ret.success:
-        rospy.loginfo("TAKEOFF Request failed.")
+        rospy.loginfo("TAKEOFF Request failed. Make sure drone is in GUIDED mode and armable.")
     else:
         rospy.loginfo("TAKEOFF Request success.")
 
@@ -64,14 +64,14 @@ def set_mode(args, mode):
     try:
         setmode_cl = rospy.ServiceProxy(args.mavros_ns + "/set_mode", SetMode)
 
-        ret = setmode_cl(base_mode=0, custom_mode="ALT_HOLD")
+        ret = setmode_cl(base_mode=0, custom_mode=mode)
     except rospy.ServiceException as ex:
         print(ex)
 
-    if not ret.success:
-        rospy.loginfo("SET MODE Request failed.")
+    if not ret.mode_sent:
+        rospy.loginfo("SET MODE {} Request failed.".format(mode))
     else:
-        rospy.loginfo("SET MODE Request success.")
+        rospy.loginfo("SET MODE {} Request success.".format(mode))
 
 
 def rc_override_control(args):
@@ -88,6 +88,7 @@ def rc_override_control(args):
     while(1):
         roll = 1500
         pitch = 1500
+        yaw = 1500
         key = getKey()
         #rospy.loginfo("Key: %s", key)
         if key == 'a':
@@ -96,8 +97,13 @@ def rc_override_control(args):
             arm(args, False)
         elif key == 't':
             takeoff(args)
-        elif key == 'h':
-            set_mode(args, "ALT_HOLD")
+        elif key == 'u':
+            throttle_ch=1500
+            set_mode(args, "LOITER")
+        elif key == 'y':
+            set_mode(args, "GUIDED")
+        elif key == 'n':
+            set_mode(args, "LAND")
         elif key == 'r': #UP
             throttle_ch+=10
         elif key == 'f': #FIX
@@ -105,13 +111,17 @@ def rc_override_control(args):
         elif key == 'v': #DOWN
             throttle_ch-=10 
         elif key == 'j': #LEFT
-            roll=1600   
-        elif key == 'l': #RIGHT
             roll=1400   
+        elif key == 'l': #RIGHT
+            roll=1600   
         elif key == 'i': #FORWARD
             pitch=1400 
         elif key == 'k': #BACKWARD
-            pitch=1600  	    
+            pitch=1600
+        elif key == 'g': #YAW LEFT
+            yaw=1400
+        elif key == 'h': #YAW RIGHT
+            yaw=1600 	    
         if (key == '\x03'):
                 break
 
@@ -119,7 +129,7 @@ def rc_override_control(args):
         rc.channels[0] = roll
         rc.channels[1] = pitch
         rc.channels[2] = throttle_ch
-        rc.channels[3] = 1500 #yaw
+        rc.channels[3] = yaw
         rc.channels[4] = 1000
         rc.channels[5] = 1000
         rc.channels[6] = 1000
@@ -141,6 +151,14 @@ def main():
     mode_group.add_argument('-pos', '--sp-position', action='store_true', help="use position setpoint control type")
 
     args = parser.parse_args(rospy.myargv(argv=sys.argv)[1:])
+
+    print("Press 'a' to Arm, 'd' to Disarm")
+    print("Press 't' to Takeoff, 'n' to Land")
+    print("Press 'y' for GUIDED, 'u' for LOITER")
+    print("Press 'r' for Throttle Up, 'f' for Fix, 'v' for Throttle Down")
+    print("Press 'j' to Left, 'l' to Right")
+    print("Press 'i' to Forward, 'k' to Backward")
+    print("Press 'g' to Yaw Left, 'h' to Yaw Right")
 
     if args.rc_override:
         rc_override_control(args)
