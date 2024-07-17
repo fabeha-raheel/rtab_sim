@@ -51,7 +51,7 @@ def takeoff(args):
     try:
         takeoff_cl = rospy.ServiceProxy(args.mavros_ns + "/cmd/takeoff", CommandTOL)
 
-        ret = takeoff_cl(altitude=2, latitude=0, longitude=0, min_pitch=0, yaw=0)
+        ret = takeoff_cl(altitude=1, latitude=0, longitude=0, min_pitch=0, yaw=0)
     except rospy.ServiceException as ex:
         print(ex)
 
