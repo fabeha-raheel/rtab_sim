@@ -99,7 +99,7 @@
             <cameraName>webcam</cameraName>
             <imageTopicName>image_raw</imageTopicName>
             <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-            <frameName>camera_link</frameName>
+            <frameName>camera</frameName>
             <hackBaseline>0.07</hackBaseline>
             <distortionK1>0.0</distortionK1>
             <distortionK2>0.0</distortionK2>
@@ -158,7 +158,7 @@
       <depthImageTopicName>/depth_camera/depth/image_raw</depthImageTopicName>
       <depthImageInfoTopicName>/depth_camera/depth/camera_info</depthImageInfoTopicName>
       <pointCloudTopicName>/depth_camera/depth/points</pointCloudTopicName>
-      <frameName>depth_camera_link</frameName>
+      <frameName>depth_camera</frameName>
       <pointCloudCutoff>0.5</pointCloudCutoff>
       <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
       <distortionK1>0.00000001</distortionK1>

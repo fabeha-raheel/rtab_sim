@@ -13,4 +13,12 @@
     <arg name="debug" default="false"/>
     <arg name="verbose" default="true"/>
   </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_camera_broadcaster" args="0 0 0 0 0 0 base_link camera 100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_depth_camera_broadcaster" args="0 0 0 0 0 0 base_link depth_camera 100" />
+
+
 </launch>

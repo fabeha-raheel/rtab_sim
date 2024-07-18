@@ -5,7 +5,7 @@
       <uri>model://iris_with_standoffs</uri>
     </include>
 
-    <!-- <include>
+    <include>
       <uri>model://gimbal_small_2d</uri>
       <pose>0 -0.01 0.070 1.57 0 -1.57</pose>
     </include>
@@ -21,9 +21,9 @@
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>true</use_parent_model_frame>
       </axis>
-    </joint> -->
+    </joint>
 
-    <!-- <link name="cam_link">
+    <link name="cam_link">
       <pose>0 0 0 0 0 0 </pose>
       <inertial>
         <mass>0.01</mass>
@@ -50,7 +50,7 @@
       <update_rate>60</update_rate>
       <visualize>true</visualize>
     </sensor>
-  </link> -->
+  </link>
 
   <joint name="camera_mount" type="fixed">
     <child>cam_link</child>

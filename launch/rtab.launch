@@ -7,9 +7,11 @@
          but it is recommended to attach this nodelet to nodelet 
          manager of the camera to avoid topic serialization -->
     <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_sync/rgbd_sync" output="screen">
-      <remap from="rgb/image"       to="/webcam/image_raw"/>
+      <!-- <remap from="rgb/image"       to="/webcam/image_raw"/> -->
+      <remap from="rgb/image"       to="/depth_camera/color/image_raw"/>
       <remap from="depth/image"     to="/depth_camera/depth/image_raw"/>
-      <remap from="rgb/camera_info" to="/webcam/camera_info"/>
+      <!-- <remap from="rgb/camera_info" to="/webcam/camera_info"/> -->
+      <remap from="rgb/camera_info" to="/depth_camera/color/camera_info"/>
       <remap from="rgbd_image"      to="rgbd_image"/> <!-- output -->
       
       <!-- Should be true for not synchronized camera topics 
