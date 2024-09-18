@@ -203,3 +203,8 @@ sudo apt install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-noetic-depthai-ros
 ```
 For more information: https://docs.luxonis.com/software/ros/depthai-ros/
+
+To resolve Rviz IMU plugin error:
+```bash
+sudo apt-get install ros-noetic-rviz-imu-plugin
+```
