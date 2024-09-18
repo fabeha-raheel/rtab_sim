@@ -197,8 +197,9 @@ sudo apt install ros-$ROS_DISTRO-rtabmap-ros
 ```
 
 
-### Depth AI Oak-D ROS Packages Installation
+### Testing RTAB Map with Depth AI Oak-D Depth Camera
 
+Install the Depth AI Oak-D Depth camera ROS package:
 ```bash
 sudo apt install ros-noetic-depthai-ros
 ```
