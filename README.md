@@ -208,3 +208,32 @@ To resolve Rviz IMU plugin error:
 ```bash
 sudo apt-get install ros-noetic-rviz-imu-plugin
 ```
+To test RGBD-SLAM using RTAB Map with Oak-D depth camera:
+1. Start the RTAB Map Package:
+    ```bash
+    roslaunch rtabmap_launch rtabmap.launch \
+    args:="--delete_db_on_start" \
+    rgb_topic:=/stereo_inertial_publisher/color/image \
+    depth_topic:=/stereo_inertial_publisher/stereo/depth \
+    camera_info_topic:=/stereo_inertial_publisher/color/camera_info \
+    imu_topic:=/stereo_inertial_publisher/imu/data \
+    frame_id:=oak-d_frame \
+    approx_sync:=true \
+    wait_imu_to_init:=true
+    ```
+2. Launch the Oak-D camera Node:
+   ```bash
+    roslaunch depthai_examples stereo_inertial_node.launch
+    ```
+3. Initialize the Odometry node:
+   ```bash
+    rosrun imu_filter_madgwick imu_filter_node \
+   imu/data_raw:=/stereo_inertial_publisher/imu \
+   imu/data:=/stereo_inertial_publisher/imu/data  \
+   _use_mag:=false \
+   _publish_tf:=false
+    ```
+For more information: https://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
+
+
+   
