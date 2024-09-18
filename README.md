@@ -182,9 +182,24 @@ roslaunch rtab_sim hector_slam_indoor.launch
 ```
 You may pass the world argument with the above command.
 
-
 ## Controlling the Drone with Keyboard Teleoperation
 The package also contains a module to control the ArduPilot drone using keyboard teleoperation. To control the drone, use the following commands in a separate terminal:
 ```bash
 roslaunch rtab_sim teleop.launch
 ```
+
+## Launching ArduPilot RTAB Map Simulation
+
+### RTAB Map Package Installation
+
+```bash
+sudo apt install ros-$ROS_DISTRO-rtabmap-ros
+```
+
+
+### Depth AI Oak-D ROS Packages Installation
+
+```bash
+sudo apt install ros-noetic-depthai-ros
+```
+For more information: https://docs.luxonis.com/software/ros/depthai-ros/
